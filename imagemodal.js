@@ -19,81 +19,62 @@ document.addEventListener("DOMContentLoaded", () => {
 /*image popup*/
 document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll(".images img");
-
-    // Create modal elements
     const modal = document.createElement("div");
     modal.classList.add("image-modal");
     document.body.appendChild(modal);
-
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
     modal.appendChild(modalContent);
-
     const modalImage = document.createElement("img");
     modalImage.classList.add("modal-image");
     modalContent.appendChild(modalImage);
-
     const closeButton = document.createElement("span");
     closeButton.classList.add("close");
     closeButton.innerHTML = "&times;";
     modalContent.appendChild(closeButton);
 
-    // Open modal
+    let scrollPosition = 0;
+
     images.forEach(img => {
         img.addEventListener("click", () => {
+            scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
             modal.style.display = "flex";
             modalImage.src = img.src;
             document.body.classList.add("modal-open");
         });
     });
 
-    // Close modal (Click Events)
-    closeButton.addEventListener("click", () => {
+    const closeModal = () => {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
-    });
+        window.scrollTo(0, scrollPosition);
+    };
 
+    // Click Events (Desktop)
+    closeButton.addEventListener("click", closeModal);
     modal.addEventListener("click", (event) => {
         if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.classList.remove("modal-open");
+            closeModal();
         }
     });
 
-    // Prevent closing when clicking inside modal content (Click Events)
-    modalContent.addEventListener("click", (event) => {
-        event.stopPropagation();
-    });
-
+    modalContent.addEventListener("click", (event) => event.stopPropagation());
     modalImage.addEventListener("click", (event) => {
         event.stopPropagation();
         event.preventDefault();
     });
 
-
-
-    // Close modal (Touch Events - FOR MOBILE)
-    closeButton.addEventListener("touchstart", () => {
-        modal.style.display = "none";
-        document.body.classList.remove("modal-open");
-    });
-
+    // Touch Events (Mobile)
+    closeButton.addEventListener("touchstart", closeModal);
     modal.addEventListener("touchstart", (event) => {
         if (event.target === modal) {
-            modal.style.display = "none";
-            document.body.classList.remove("modal-open");
+            closeModal();
         }
     });
 
-    // Prevent closing when clicking inside modal content (Touch Events - FOR MOBILE)
-    modalContent.addEventListener("touchstart", (event) => {
-        event.stopPropagation();
-    });
-
-        modalImage.addEventListener("touchstart", (event) => {
+    modalContent.addEventListener("touchstart", (event) => event.stopPropagation());
+    modalImage.addEventListener("touchstart", (event) => {
         event.stopPropagation();
         event.preventDefault();
     });
-
-
 });
