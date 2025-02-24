@@ -47,18 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close modal
+    // Close modal (Click Events)
     closeButton.addEventListener("click", () => {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
     });
 
-    // Prevent closing when clicking inside modal content
-    modalContent.addEventListener("click", (event) => {
-        event.stopPropagation();
-    });
-
-    // Close modal ONLY when clicking the modal background
     modal.addEventListener("click", (event) => {
         if (event.target === modal) {
             modal.style.display = "none";
@@ -66,9 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Prevent image click and zoom
+    // Prevent closing when clicking inside modal content (Click Events)
+    modalContent.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+
     modalImage.addEventListener("click", (event) => {
         event.stopPropagation();
         event.preventDefault();
     });
+
+
+
+    // Close modal (Touch Events - FOR MOBILE)
+    closeButton.addEventListener("touchstart", () => {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+    });
+
+    modal.addEventListener("touchstart", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+        }
+    });
+
+    // Prevent closing when clicking inside modal content (Touch Events - FOR MOBILE)
+    modalContent.addEventListener("touchstart", (event) => {
+        event.stopPropagation();
+    });
+
+        modalImage.addEventListener("touchstart", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+    });
+
+
 });
