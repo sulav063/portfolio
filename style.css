@@ -26,6 +26,7 @@ body {
     z-index: 1000;
     background: transparent; /* Transparent by default */
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 /* Navbar AFTER Scrolling */
@@ -129,6 +130,7 @@ section {
     display: block;
     object-fit: cover;
     align-items: center;
+    
 }
 
 /* Home Content */
@@ -265,8 +267,6 @@ section {
     }
 }
 
-
-
 @media (max-width: 768px) {
     .navbar a {
         font-size: 16px;
@@ -287,9 +287,9 @@ section {
     background: linear-gradient(45deg, #141E30, #243B55);
     color: white;
     text-align: center;
-    padding: 4px 4px;
+    padding: 5px 5px;
     font-size: 16px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .footer-container {
@@ -301,13 +301,13 @@ section {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Space between icons */
+    gap: 20px; /* Space between icons */
     margin-top: 10px;
 }
 
 .social-icons a {
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -327,4 +327,91 @@ section {
         font-size: 20px;
     }
 }
+
+/*scroll button*/
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+}
+
+/* Mobile Navbar Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: #0c1022;
+        padding: 10px 0;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+
+/*image modal*/
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.image-modal .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 
