@@ -1,0 +1,330 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0c1022;
+    color: #fff;
+}
+
+/* Navbar */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 1% 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: transparent; /* Transparent by default */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar AFTER Scrolling */
+.header.scrolled {
+    background: #0c1022; /* Dark color when scrolling */
+
+}
+
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    font-size: 1.2vw;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    background: linear-gradient(45deg, #f06, #3cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* Sections */
+section {
+    padding-top: 100px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Home Section */
+.home {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 5%;
+    gap: 5%;
+}
+
+/* Image in Home Section */
+.home-img {
+    width: 35vw;
+    height: 35vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Circular glowing effect */
+.home-img .glowing-circle {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f06, #3cf);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.glowing-circle .image {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background: #0c1022;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.glowing-circle span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f06, #3cf);
+    border-radius: 50%;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    align-items: center;
+}
+
+/* Home Content */
+.home-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* About Section */
+.about {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10% 5%;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+/* Image in About Section */
+.about .home-img {
+    width: 35vw;
+    height: 35vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text in About Section */
+.about-content {
+    max-width: 50%;
+    text-align: left;
+}
+
+.about-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Ensuring proper alignment */
+.about,
+.home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about,
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-img,
+    .about .home-img {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .home-content,
+    .about-content {
+        max-width: 80%;
+        text-align: center;
+    }
+}
+
+/* Photos Section */
+.photos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Custom Grid Layout for Images */
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Ensuring images fit well */
+.images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .home-content h1,
+    .about-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background: linear-gradient(45deg, #141E30, #243B55);
+    color: white;
+    text-align: center;
+    padding: 4px 4px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3cf;
+    transform: scale(1.2);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+    }
+    
+    .social-icons a {
+        font-size: 20px;
+    }
+}
+

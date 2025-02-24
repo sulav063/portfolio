@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unveiling My Creative Journey: The Portfolio of Sulav Adhikari</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="#" class="logo">Sulav Adhikari</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#photos">Photos</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1 class="animated-text">Hi, I'm Sulav Adhikari</h1>
+            <h3 class="animated-subtitle">Student</h3>
+        </div>
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image">
+                    <img src="adhsulav.jpg" alt="Sulav Adhikari">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="home-img">
+            <div class="glowing-circle">
+                <span></span>
+                <span></span>
+                <div class="image">
+                    <img src="adhsulav.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="about-content">
+            <h1>Hi,</h1>
+            <p align="justify">
+                I'm Sulav Adhikari, a passionate learner currently pursuing my Bachelor's degree 
+                in Computer Science and Information Technology (BSc. CSIT) at the Asian College 
+                of Higher Studies (ACHS). I am thrilled to present my first web page design, 
+                created using HTML and CSS. This project allowed me to gain practical experience 
+                in designing layouts, implementing responsive design principles, and styling web pages.
+                Alongside my academic journey, I am dedicated to continuous learning and growth, 
+                always seeking new challenges and opportunities to enhance my skills.
+            </p>
+                <p align="justify">
+                    In addition to web development, I have a keen interest in photography, 
+                    which serves as a creative outlet for me. My portfolio includes a dedicated 
+                    photo section featuring a curated collection of my favorite photographs that 
+                    reflect my artistic vision. You can also explore my Instagram profile to 
+                    view more of my work. Through this portfolio, I aim to showcase my progress, 
+                    creativity, and dedication as I navigate my journey as both a web developer 
+                    and photographer. I am excited to collaborate with like-minded individuals 
+                    and contribute to meaningful projects that combine my technical expertise with 
+                    my artistic perspective.
+                </p>
+        </div>
+    </section>
+
+    <!-- Photos Section -->
+    <section id="photos" class="photos">
+        <h1 class="section-title">My Photography</h1>
+        <div class="images">
+            <img src="images/img2.jpg" alt="">
+            <img src="images/img7.jpg" alt="">
+            <img src="images/img5.jpg" alt="">
+            <img src="images/img8.jpg" alt="">
+            <img src="images/img9.jpg" alt="">
+            <img src="images/img10.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- Contact Section (Footer) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Let's Connect! Feel free to reach out.</p>
+    
+            <div class="social-icons">
+                <a href="https://www.facebook.com/sulava0312" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/_adhikarisulav_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/sulav-adhikari" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/sulav063" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            
+    
+            <p>&copy; 2024 Sulav Adhikari | All Rights Reserved</p>
+        </div>
+    </footer>
+    
+
+    <!-- JavaScript for Active Navbar Links -->
+    <script>
+        window.addEventListener("scroll", function () {
+            let header = document.querySelector(".header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".navbar a");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(current)) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
