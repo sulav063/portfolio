@@ -47,24 +47,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close modal (Improved)
+    // Close modal
     closeButton.addEventListener("click", () => {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
     });
 
-    // Prevent closing when clicking *inside* the modal content area
+    // Prevent closing when clicking inside modal content
     modalContent.addEventListener("click", (event) => {
-        event.stopPropagation(); // Stop click from bubbling to the modal
+        event.stopPropagation();
     });
 
-    // Close modal ONLY when clicking the modal *background*
+    // Close modal ONLY when clicking the modal background
     modal.addEventListener("click", (event) => {
-        if (event.target === modal) { 
+        if (event.target === modal) {
             modal.style.display = "none";
             document.body.classList.remove("modal-open");
         }
     });
+
+    // Prevent image click and zoom
+    modalImage.addEventListener("click", (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+    });
 });
-
-
