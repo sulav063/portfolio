@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = () => {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
-        window.scrollTo(0, scrollPosition);
+        requestAnimationFrame(() => {
+            window.scrollTo(0, scrollPosition);
+        });
     };
 
     // Click Events (Desktop)
