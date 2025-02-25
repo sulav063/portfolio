@@ -520,3 +520,44 @@ section {
         transform: rotate(360deg);
     }
 }
+
+
+/* Mobile Menu Button */
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    z-index: 2000;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1999;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block; /* Show menu icon */
+    }
+}
