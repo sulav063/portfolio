@@ -62,29 +62,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Navigate to previous image (Button Click)
+    // Navigate to previous image (Looping enabled)
     prevButton.addEventListener("click", function (event) {
         event.stopPropagation();
-        if (currentIndex > 0) {
-            openModal(currentIndex - 1);
-        }
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1; // Go to last image if first image is reached
+        openModal(currentIndex);
     });
 
-    // Navigate to next image (Button Click)
+    // Navigate to next image (Looping enabled)
     nextButton.addEventListener("click", function (event) {
         event.stopPropagation();
-        if (currentIndex < images.length - 1) {
-            openModal(currentIndex + 1);
-        }
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1; // Go to first image if last image is reached
+        openModal(currentIndex);
     });
 
-    // Navigate using Keyboard (Left and Right Arrow Keys)
+    // Navigate using Keyboard (Left and Right Arrow Keys with Looping)
     document.addEventListener("keydown", function (event) {
         if (modal.style.display === "flex") {
-            if (event.key === "ArrowLeft" && currentIndex > 0) {
-                openModal(currentIndex - 1); // Left Arrow Key
-            } else if (event.key === "ArrowRight" && currentIndex < images.length - 1) {
-                openModal(currentIndex + 1); // Right Arrow Key
+            if (event.key === "ArrowLeft") {
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1; // Loop to last image
+                openModal(currentIndex);
+            } else if (event.key === "ArrowRight") {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1; // Loop to first image
+                openModal(currentIndex);
             }
         }
     });
