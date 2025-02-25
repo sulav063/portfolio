@@ -400,10 +400,20 @@ section {
     z-index: 1000;
 }
 
-.modal img {
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     max-width: 90%;
-    max-height: 80%;
+    max-height: 90%;
+}
+
+.modal img {
+    max-width: 80vw;
+    max-height: 80vh;
     border-radius: 10px;
+    display: block;
 }
 
 .close-button {
@@ -413,4 +423,27 @@ section {
     font-size: 30px;
     color: white;
     cursor: pointer;
+}
+
+.nav-button {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.prev-button {
+    left: 5%;
+}
+
+.next-button {
+    right: 5%;
+}
+
+.nav-button:hover {
+    color: rgba(255, 255, 255, 0.6);
 }
