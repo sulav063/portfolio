@@ -400,7 +400,7 @@ section {
 }
 
 
-/* Image Modal Background */
+/* Modal Background */
 .modal {
     display: none;
     position: fixed;
@@ -414,6 +414,7 @@ section {
     z-index: 1000;
 }
 
+/* Modal Content */
 .modal-content {
     display: flex;
     align-items: center;
@@ -430,6 +431,7 @@ section {
     display: block;
 }
 
+/* Close Button */
 .close-button {
     position: absolute;
     top: 20px;
@@ -439,28 +441,43 @@ section {
     cursor: pointer;
 }
 
+/* Navigation Buttons */
 .nav-button {
     position: absolute;
-    background: none;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
-    font-size: 25px;
-    padding: 10px;
+    font-size: 35px;
+    padding: 15px;
     cursor: pointer;
-    transition: color 0.3s;
+    border-radius: 50%;
+    transition: background 0.3s;
+    display: block !important; /* Ensure visibility */
 }
 
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Left Arrow */
 .prev-button {
     left: 5%;
 }
 
+/* Right Arrow */
 .next-button {
     right: 5%;
 }
 
-.nav-button:hover {
-    color: rgba(255, 255, 255, 0.6);
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .prev-button, .next-button {
+        font-size: 30px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.7);
+    }
 }
+
 
 /*page loader*/
 .page-loader {
