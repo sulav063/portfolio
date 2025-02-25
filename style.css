@@ -442,42 +442,54 @@ section {
 }
 
 /* Navigation Buttons */
+/* Navigation Buttons */
 .nav-button {
     position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     border: none;
     color: white;
-    font-size: 35px;
+    font-size: 40px;
     padding: 15px;
     cursor: pointer;
     border-radius: 50%;
     transition: background 0.3s;
-    display: block !important; /* Ensure visibility */
+    display: flex !important; /* Force visibility */
+    align-items: center;
+    justify-content: center;
+    z-index: 1100; /* Ensure it's above images */
 }
 
+/* Hover effect */
 .nav-button:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Left Arrow */
+/* Left Arrow (Previous Button) */
 .prev-button {
-    left: 5%;
+    left: 10px; /* Ensure it's positioned correctly */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex !important; /* Force display */
 }
 
-/* Right Arrow */
+/* Right Arrow (Next Button) */
 .next-button {
-    right: 5%;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex !important;
 }
 
-/* Mobile Adjustments */
+/* Adjust for small screens */
 @media (max-width: 768px) {
-    .prev-button, .next-button {
+    .nav-button {
         font-size: 30px;
-        padding: 10px;
+        padding: 12px;
+        width: 50px;
+        height: 50px;
         background: rgba(0, 0, 0, 0.7);
     }
 }
-
 
 /*page loader*/
 .page-loader {
