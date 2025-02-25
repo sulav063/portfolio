@@ -17,28 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const scrollTopBtn = document.createElement("button");
-    scrollTopBtn.innerText = "↑";
-    scrollTopBtn.classList.add("scroll-top-btn");
-    document.body.appendChild(scrollTopBtn);
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollTopBtn.style.display = "block";
-        } else {
-            scrollTopBtn.style.display = "none";
-        }
-    });
-
-    scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-});
-
 /*half scroll to another section*/
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section"); // Select all sections
+    const sections = document.querySelectorAll("section");
     let isScrolling = false;
 
     function getNearestSection() {
@@ -60,6 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
         isScrolling = true;
 
         let nearestSection = getNearestSection();
+
+        // If the user reaches the Photos section, disable auto-scroll
+        if (nearestSection.id === "photos") {
+            isScrolling = false;
+            return;
+        }
+
         window.scrollTo({
             top: nearestSection.offsetTop,
             behavior: "smooth"
