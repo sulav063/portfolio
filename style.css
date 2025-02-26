@@ -219,6 +219,12 @@ section {
     }
 }
 
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column-reverse; /* Moves the image above the text */
+    }
+}
+
 /* Photos Section */
 .photos {
     width: 100%;
