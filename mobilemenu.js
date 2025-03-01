@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".header").appendChild(menuToggle);
 
     const navbar = document.querySelector(".navbar");
+
+    // Ensure Contact is in the menu
+    if (!document.querySelector('.navbar a[href="#contact"]')) {
+        navbar.innerHTML += `<a href="#contact">Contact</a>`;
+    }
+
     menuToggle.addEventListener("click", () => {
         navbar.classList.toggle("open");
     });
@@ -16,4 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
             navbar.classList.remove("open");
         });
     });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar");
+
+    // 🔥 Check if Contact is missing, then add it
+    if (!document.querySelector('.navbar a[href="#contact"]')) {
+        const contactLink = document.createElement("a");
+        contactLink.href = "#contact";
+        contactLink.textContent = "Contact";
+        navbar.appendChild(contactLink);
+    }
 });
