@@ -52,7 +52,19 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    display: block;
+    font-size: 18px;
+    padding: 10px;
 }
+
+.navbar.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar a[href="#contact"] {
+    display: block !important;
+} 
 
 .navbar a.active,
 .navbar a:hover {
@@ -380,13 +392,13 @@ section {
         overflow: hidden;
         background: rgba(255, 255, 255, 0.1); 
         backdrop-filter: blur(10px);
-        border-radius: 10px;
+        border-radius: 5px;
         transition: height 0.4s ease-in-out;
         z-index: 1000;
     }
 
     .navbar.open {
-        height: 250px; 
+        height: 330px; 
     }
 
     .navbar a {
@@ -546,8 +558,9 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 1500%;
     height: 100vh;
+    overflow: auto;
     background: rgba(0, 0, 0, 0.9);
     flex-direction: column;
     align-items: center;
@@ -560,6 +573,7 @@ section {
     text-decoration: none;
     font-size: 24px;
     margin: 15px 0;
+    text-transform: none;
 }
 
 @media (max-width: 768px) {
@@ -578,5 +592,121 @@ section {
 @media (max-width: 768px) {
     .logo-img {
         height: 200px; 
+    }
+}
+
+/* Projects Section */
+#projects {
+    text-align: center;
+    padding: 40px 10px;
+    background-color: inherit; 
+    position: relative;
+}
+
+#projects h2 {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+}
+
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.project {
+    width: 320px;
+    height: 400px;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ✅ Always Apply Hover Effect (No Click Required) */
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.project img:hover {
+    transform: scale(1.05);
+}
+
+.project h3,
+.project p {
+    color: white;
+}
+
+.project a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background: #0c1022;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project a:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    #projects h2 {
+        font-size: 1.8rem; 
+    }
+    .project-container {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .project {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    #projects h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #projects h2 {
+        font-size: 1.4rem;
+    }
+
+    .project {
+        width: 95%;
+        padding: 12px;
     }
 }
