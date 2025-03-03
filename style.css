@@ -44,6 +44,7 @@ body {
 .navbar {
     display: flex;
     gap: 20px;
+    
 }
 
 .navbar a {
@@ -622,7 +623,7 @@ section {
 
 .project {
     width: 320px;
-    height: 400px;
+    height: auto;
     background: #222;
     padding: 20px;
     border-radius: 10px;
@@ -666,6 +667,7 @@ section {
     padding: 10px 16px;
     border-radius: 5px;
     font-size: 1rem;
+    margin-top: 10px; /* Add space between buttons */
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -687,11 +689,11 @@ section {
     .project-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: center;
+        gap: 15px;
     }
     .project {
-        width: 48%;
+        width: 95%;
         margin-bottom: 10px;
     }
 
