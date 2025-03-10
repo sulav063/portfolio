@@ -221,6 +221,7 @@ section {
     .home-img,
     .about .home-img {
         width: 50vw;
+        order: -1;
         height: 50vw;
     }
 
@@ -228,6 +229,7 @@ section {
     .about-content {
         max-width: 80%;
         text-align: center;
+        order: -1;
     }
 }
 
